@@ -1,0 +1,17 @@
+# Build Artifacts
+dist/
+build/
+
+# Compiled Python Files
+*.pyc
+pycache/
+
+# Virtual Environment
+# votingenv/
+
+# Editor and IDE files
+.vscode/
+
+# Miscellaneous
+.DS_Store
+*.egg-info/
