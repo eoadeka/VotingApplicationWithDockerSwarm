@@ -1,2 +1,5 @@
 README.md
 Dockerfile*
+.votingenv
+.git
+.gitignore

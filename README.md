@@ -19,7 +19,7 @@ This is a simple voting application created with Docker Swarm. The application c
     - Containerise by creating a Dockerfile
 
 4. Configure the result service
-    - The result service iuses PostgreSQL to store and display the vote results.
+    - The result service uses PostgreSQL to store and display the vote results.
     - Containerise by creating a Dockerfile.
 
 5. Define the networks and volumes
