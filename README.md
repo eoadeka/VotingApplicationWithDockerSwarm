@@ -24,7 +24,7 @@ This is a simple voting application created with Docker Swarm. The application c
 
 5. Define the networks and volumes
     - Define the network in the `docker-compose.yml` file to allow communication between the voting and result services.
-    - Create any necessary volumes to store data persitently , such as database for the result service.
+    - Create any necessary volumes to store data persistently , such as database for the result service.
 
 6. Deploy the application
     - Use the `docker stack deploy` command to deploy ythe application stack defined in the `docker-compose.yml` file to the Docker Swarm Cluster.
