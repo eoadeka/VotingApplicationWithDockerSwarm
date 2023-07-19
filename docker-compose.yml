@@ -4,13 +4,15 @@ version: "3"
 services:
   web:
     container_name: dev_backend
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
     restart: always
     command: python manage.py runserver localhost:8000
     ports:
       - "8000:8000"
     env_file:
-      - dev.env
+      - .env
     volumes:
       - .:/app
       - static_volume:/app/static
@@ -18,9 +20,12 @@ services:
       - db
   db:
     container_name: db
-    image: postgres:12.0-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    image: postgres:15.0-alpine
     env_file:
-      - result.env
+      - db.env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
