@@ -1,0 +1,10 @@
+# Use the official image from docker hub
+FROM postgres:15-alpine
+
+# Set the environment variables (optional) (stored in db.env)
+# ENV POSTGRES_DB=${cat /tmp/db.env | grep "POSTGRES_DB" | CUT -d '=' -f2}
+# ENV POSTGRES_USER
+# ENV POSTGRES_PASSWORD
+
+# Expose the PostgreSQL port
+EXPOSE 5432
