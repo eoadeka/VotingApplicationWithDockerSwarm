@@ -5,22 +5,19 @@ version: "3.8"
 services:
   web:
     container_name: vote_container
+    image: app:vote
     build:
       context: .
       dockerfile: Dockerfile.backend
-    image: python:latest
-    restart: always
-    command: python manage.py runserver localhost:8000
     ports:
       - "8000:8000"
+    tty: true
     env_file:
       - ./voting_project/.env
     networks:
       - my_network
     volumes:
       - .:/app
-      # - static_volume:/app/static
-      # - ./app/:usr/src/app
     depends_on:
       - db
   db:
@@ -56,5 +53,6 @@ networks:
 
 volumes:
   # static_volume:
+  # web_volume:
   postgres_data:
 
