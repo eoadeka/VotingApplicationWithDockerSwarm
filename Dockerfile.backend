@@ -1,6 +1,6 @@
 # BUILDER STAGE
 # Docker should use the official python 3 image usng dockerhub as a base image
-FROM python:3.11.3-alpine AS builder
+FROM python:3.11.3-slim AS builder
 
 # Create virtual environment
 RUN python -m venv /opt/votingenv
@@ -10,16 +10,16 @@ ENV PATH="/opt/votingenv/bin:$PATH"
  
 # install psycog2 dependencies    
 RUN apk update && \
-    apk add postgresql dev gcc python3-dev musl-dev libpq-dev
+    apk add libpq-dev gcc python3-dev musl-dev
 
 # install dependencies from requirements.txt
 COPY requirements.txt /app/requirements.txt
 RUN pip  install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 
 # OPERATIONAL STAGE
-FROM python:3.11.3-alpine
+FROM python:3.11.3-slim
 
 # Get venv from builder stage
 COPY --from=builder /opt/votingenv /opt/votingenv
